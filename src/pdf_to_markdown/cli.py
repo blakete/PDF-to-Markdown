@@ -1,4 +1,4 @@
-"""Command-line interface for pdf-to-markdown."""
+"""Command-line interface for pdf2markdown."""
 
 from __future__ import annotations
 
@@ -8,9 +8,16 @@ from pathlib import Path
 
 
 def main(argv: list[str] | None = None) -> None:
+    from . import __version__
+
     parser = argparse.ArgumentParser(
-        prog="pdf-to-markdown",
+        prog="pdf2markdown",
         description="Convert a PDF document to Markdown with extracted images.",
+    )
+    parser.add_argument(
+        "-V", "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
     )
     parser.add_argument(
         "pdf",

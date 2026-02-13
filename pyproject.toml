@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68.0"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "pdf-to-markdown"
@@ -9,6 +9,12 @@ description = "Convert PDF documents to Markdown with embedded image extraction 
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
 dependencies = [
     "PyMuPDF>=1.24.0",
     "Pillow>=10.0.0",
@@ -18,7 +24,11 @@ dependencies = [
 ocr = ["pytesseract>=0.3.10"]
 
 [project.scripts]
-pdf-to-markdown = "pdf_to_markdown.cli:main"
+pdf2markdown = "pdf_to_markdown.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/blakete/PDF-to-Markdown"
+Repository = "https://github.com/blakete/PDF-to-Markdown"
 
 [tool.setuptools.packages.find]
 where = ["src"]
